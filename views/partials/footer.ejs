@@ -1,0 +1,81 @@
+</body>
+
+	<footer>
+	  	<h1>Footer</h1>
+	</footer>
+
+	<script>
+        $(document).ready(function () {
+
+            $('#loginBtn').click(function () {
+                $('#loginModal').modal('show');
+            });
+
+            $('.close').click(function(){
+  				var $target = $(this).parents('div .card-flyer');
+  				$target.hide('slow', function(){ $target.remove(); });
+			})
+        });
+
+		function validate(){
+			var username = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+			if ( username == "admin" && password == "password"){
+				$('#loginModal').modal('hide');
+				alert ("Login successfully");
+				document.getElementById("addevent").style.display ="block";
+				window.location = "#addevent"; // Redirecting to other page.
+				$(".close").css("display", "block")
+				return false;
+			}
+			else{
+				alert("Incorrect Details !!");
+			}
+		}
+
+		var loadFile = function(event) {
+		var image = document.getElementById('output');
+		image.src = URL.createObjectURL(event.target.files[0]);
+		};
+
+		// function print(){
+		// 	var Ename= document.getElementById("event").value;
+		// 	var Edes= document.getElementById("desc").value;
+		// 	var Card = document.querySelector('div #cardappend');
+		// 	var image = document.getElementById('output');
+
+		// 	Card.innerHTML = `<div class="col-md-12 col-sm-12 col-lg-12" id="idA">
+		// 			  <div class="card-flyer">
+		// 				<div class="text-box">
+		// 				  <div class="row">
+		// 					<div class="col-md-6">
+		// 					  <div class="image-box">
+		// 						<img src=${image.src} />
+		// 					  </div>
+		// 					</div>
+		// 					<div class="col-md-6"><a class="close" href="#" style="display: block;">×</a>
+		// 					  <div class="text-container">
+		// 						<h6 id="EventT">${Ename}</h6>
+		// 						<p id="EventD">${Edes}</p>
+		// 						<a href="#" class="btn btn-outline-primary">Know more</a>
+		// 					  </div>
+		// 					</div>
+		// 				  </div>
+		// 				</div>
+		// 			  </div>
+		// 	  </div>` + Card.innerHTML; 
+
+		// 	document.getElementById("clear").reset();
+		// 	document.getElementById("output").src="";
+
+		// 	$('.close').click(function(){
+		// var $target = $(this).parents('div .card-flyer');
+		// $target.hide('slow', function(){ $target.remove(); });
+		// 	})
+		// }
+
+		
+
+    </script>
+
+</html>
